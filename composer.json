@@ -1,6 +1,6 @@
 {
     "name": "swoole/gadget",
-    "description": "Easy to implement swoole development tools",
+    "description": "Easy swoole development tools",
     "type": "library",
     "require": {
         "php": ">=7.0"
@@ -8,14 +8,14 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Xiaoming Hu",
-            "email": "Xiaoming.Hu@connext.com.cn"
+            "name": "Xiaoming.Hu",
+            "email": "xiaoming.hu@connext.com.cn"
         }
     ],
     "minimum-stability": "dev",
-    "autoload":{
-        "psr-4":{
-            "SwooleGadget\\":"src"
-         }
+    "autoload": {
+        "psr-4": {
+            "SwooleGadget\\" : "src/"
+        }
     }
 }

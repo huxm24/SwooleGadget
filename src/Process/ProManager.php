@@ -1,12 +1,12 @@
 <?php
-namespace SwooleGadge\Process;
+namespace SwooleGadget\Process;
 
 /**
  * Class ProManager
  *
  * @package SwooleGadge\Process
  */
-trait ProManager
+class ProManager
 {
     /**
      * 功能：存放进程标识
@@ -27,7 +27,7 @@ trait ProManager
      * 作   者: xiaoming.hu
      * @return void
      */
-    protected function handle()
+    public function handle()
     {
         echo 3333;exit;
         $count = 0;
