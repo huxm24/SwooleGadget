@@ -6,7 +6,7 @@ namespace SwooleGadge\Process;
  *
  * @package SwooleGadge\Process
  */
-class ProManager
+trait ProManager
 {
     /**
      * 功能：存放进程标识
@@ -22,23 +22,14 @@ class ProManager
     protected $WorkMaxNum = 8;
 
     /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * 功   能: 进程启动入口方法
      * 修改日期: 2019/10/09
      * 作   者: xiaoming.hu
      * @return void
      */
-    public function handle()
+    protected function handle()
     {
+        echo 3333;exit;
         $count = 0;
         while (true) {
             try {
