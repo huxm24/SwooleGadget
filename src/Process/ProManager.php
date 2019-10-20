@@ -6,7 +6,7 @@ namespace SwooleGadget\Process;
  *
  * @package SwooleGadge\Process
  */
-class ProManager
+trait ProManager
 {
     /**
      * 功能：存放进程标识
