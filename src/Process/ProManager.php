@@ -6,20 +6,44 @@ namespace SwooleGadget\Process;
  *
  * @package SwooleGadge\Process
  */
-trait ProManager
+class ProManager
 {
     /**
      * 功能：存放进程标识
      *
      * @var array
      * */
-    protected $Mworkers;
+    private $Mworkers;
     /**
      * 功能：保持启动进程数量
      *
      * @var integer
      */
-    protected $WorkMaxNum = 8;
+    private $WorkMaxNum = 8;
+    /**
+     * 回调函数的参数
+     * @var string
+     */
+    private $param = '';
+    /**
+     * 回调函数
+     * @var null
+     */
+    private $callBack = null;
+
+    /**
+     * ProManager constructor.
+     *
+     * @param callable|null $func 接受任务回调函数
+     * @param array         $params 配置任务参数与设置启动进程数量
+     */
+    public function __construct(callable $func = null, array $params = [])
+    {
+        $this->callBack = $func;
+        $this->param = $params['param'];
+        $this->WorkMaxNum = $params['workerNumLimit'];
+        $this->run();
+    }
 
     /**
      * 功   能: 进程启动入口方法
@@ -27,9 +51,8 @@ trait ProManager
      * 作   者: xiaoming.hu
      * @return void
      */
-    public function handle()
+    private function run()
     {
-        echo 3333;exit;
         $count = 0;
         while (true) {
             try {
@@ -89,7 +112,7 @@ trait ProManager
             swoole_set_process_name(sprintf("ProName:%s", $proName));
             try{
                 //TODO 完成业务逻辑代码
-                $this->testSleep();
+                call_user_func($this->callBack, $this->param);
             }catch (\Exception $ex){
                 //TODO 错误处理逻辑
             }
